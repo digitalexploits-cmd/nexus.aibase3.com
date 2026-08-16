@@ -28,7 +28,7 @@ export const IntroOverlay = ({ onComplete }: Props) => {
   const finish = useCallback(() => {
     if (finishedRef.current) return;
     finishedRef.current = true;
-    try { window.localStorage.setItem("nexus.introSeen", "1"); } catch {}
+    try { window.localStorage.setItem("nexus.introSeen", "1"); } catch { /* ignore */ }
     try { onComplete(); } catch { /* ignore */ }
     requestAnimationFrame(() => {
       setFading(true);
